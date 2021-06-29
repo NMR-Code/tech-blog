@@ -1,16 +1,22 @@
 {
-    "name": "crowd-funding",
+    "name": "tech-blog",
     "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
+    "description": "A blog style discussion board where users can discuss anything relating to tech!",
+    "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js",
-        "seed": "node seeds/seed.js"
+        "start": "node server.js"
     },
-    "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NMR-Code/tech-blog.git"
+    },
     "author": "",
     "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NMR-Code/tech-blog/issues"
+    },
+    "homepage": "https://github.com/NMR-Code/tech-blog#readme",
     "dependencies": {
         "bcrypt": "^5.0.0",
         "connect-session-sequelize": "^7.0.4",
@@ -18,12 +24,8 @@
         "express": "^4.17.1",
         "express-handlebars": "^5.2.0",
         "express-session": "^1.17.1",
+        "handlebars": "^4.7.6",
         "mysql2": "^2.2.5",
         "sequelize": "^6.3.5"
-    },
-    "devDependencies": {
-        "eslint": "^7.12.1",
-        "eslint-config-prettier": "^6.15.0",
-        "prettier": "^2.1.2"
     }
 }

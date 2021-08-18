@@ -1,6 +1,50 @@
-<h1 class="padding-20">My Posts</h1>
-<p><a class="link" href="/post">New Post</a></p>
-{{#each posts as |aPost| }}
-{{!-- Pass in the data to each individual post --}}
-{{> post aPost}}
-{{/each}}
+<div class="center-title">
+	<p>
+		Create a post
+	</p>
+</div>
+<div class="post-form">
+	<form id="new-post-form">
+		<ul>
+			<li>
+				<label for="post_title">post title:</label>
+				<input type="text" id="post_title" name="post_title" />
+			</li>
+			<li>
+				<label for="post_body">message:</label>
+				<input type="text" id="post_body" name="post_body" />
+			</li>
+		</ul>
+		<button type="submit">Submit</button>
+	</form>
+</div>
+
+{{#if posts.length}}
+	<div class="center-title">
+		<p>
+			click on past post to edit
+		</p>
+	</div>
+	{{#each posts}}
+		<div class="post-card">
+			<div class="card-label">
+				<span class="card-title"><a
+						href="dashboard/edit-post/{{this.id}}"
+						id="postPath"
+					>{{this.post_title}}</a></span>
+				<span class="card-info"><div>post ref#
+						<span id="postRef">{{this.id}}</span></div>{{this.user.username}}
+					{{this.post_date}}</span>
+			</div>
+			<div class="card-body">
+				<p>
+					{{this.post_body}}
+				</p>
+
+				<span class="deletePost"><button>delete</button></span>
+			</div>
+		</div>
+	{{/each}}
+{{/if}}
+<script src="/js/create-post.js"></script>
+<script src="/js/delete-post.js"></script>

@@ -28,7 +28,7 @@ router.get('/', withAuth, async (req, res) => {
         // follow
         const posts = postData.map((project) => project.get({ plain: true }));
 
-        res.render('homepage', {
+        res.render('dashboard', {
             posts: posts,
             post_title: posts.post_title,
             post_date: posts.post_date,
@@ -41,8 +41,25 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+router.post('/create-post', withAuth, async (req, res) => {
+    try {
+        let newDate = new Date();
+        const postData = await Post.create({
+            post_title: req.body.title,
+            post_body: req.body.body,
+            post_date: newDate,
+            user_id: req.body.user_id
+        })
+        res.status(200).json(postData)
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+})
 
-router.get('/post-content/:id', withAuth, async (req, res) => {
+
+
+router.get('/edit-post/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findOne({
             where: { id: req.params.id },
@@ -74,7 +91,7 @@ router.get('/post-content/:id', withAuth, async (req, res) => {
         const posts = postData;
         const comments = posts.comments.map((project) => project.get({ plain: true }));
 
-        res.render('posts', {
+        res.render('edit', {
             posts: posts,
             id: posts.id,
             post_title: posts.post_title,
@@ -87,15 +104,5 @@ router.get('/post-content/:id', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 })
-
-router.get('/login', (req, res) => {
-
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-
-    res.render('login');
-});
 
 module.exports = router;

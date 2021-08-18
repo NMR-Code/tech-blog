@@ -1,41 +1,39 @@
-const express = require("express");
-const path = require("path");
-const controller = require("./controllers");
-//Handlebars
-const exphbs = require("express-handlebars");
-//Sequelize
-const sequelize = require("./config/connection");
-//Session
-const session = require("express-session");
-const SequlizeStore = require("connect-session-sequelize")(session.Store);
+const express = require('express');
+const path = require('path');
+const exphbs = require('express-handlebars');
+const sequelize = require('./config/connection');
+const routes = require('./controllers');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const PORT = process.env.PORT || 3000;
 
-//set up the actual session
-const sess = {
-    secret: "super secret secret",
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequlizeStore({
-        db: sequelize,
-    }),
-};
-//initialize the server
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-//middlewear
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+const sess = {
+	secret: 'secretssssss',
+	cookie: { maxAge: 7200000 },
+	resave: false,
+	saveUninitialized: false,
+	store: new SequelizeStore({
+		db: sequelize,
+	}),
+};
+
 app.use(session(sess));
 
-//use controllers
-app.use("/", controller);
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(routes);
 
-//set handlebars as render engine
-app.engine("handlebars", exphbs());
-app.set("view engine", "handlebars");
-
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+app.listen(PORT, async () => {
+	try {
+		await sequelize.sync();
+		console.log('All models were synchronized successfully.');
+		console.log(`App listening on port ${PORT}!`);
+	} catch (err) {
+		console.log(err);
+	}
 });

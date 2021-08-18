@@ -1,0 +1,130 @@
+* {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+	background-color: rgb(255, 255, 255);
+	margin: 0%;
+}
+
+.header {
+	background-color: rgb(189, 189, 189);
+	/* height: 100px;
+	margin: -10px -15px 0px -15px; */
+	min-height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.navbar {
+	width: 50%;
+	color: white;
+}
+
+.navbar ul {
+	display: flex;
+}
+
+.navbar ul > li {
+	font-size: larger;
+	list-style-type: none;
+	margin: 10px 10px 0px 4%;
+}
+.navbar ul li a {
+	font-size: 20px;
+	font-weight: 500;
+	text-decoration: none;
+	color: white;
+}
+
+.flag-marker {
+	background-color: rgb(223, 63, 63);
+	border-radius: 20px;
+	margin: 5px 2px 5% 5%;
+	height: 5%;
+	width: 15%;
+	box-shadow: 8px 5px 5px 3px rgba(0, 0, 0, 0.4);
+}
+
+.flag-marker-text {
+	font-weight: 700;
+	font-size: 25px;
+	padding: 0px 15px;
+	color: rgb(0, 0, 0);
+}
+.center-title {
+	font-weight: 700;
+	font-size: 25px;
+	padding: 0px 15px;
+	color: rgb(0, 0, 0);
+}
+
+.welcomepage {
+	display: flex;
+}
+.post-feild {
+	display: flex;
+	flex-direction: column;
+}
+
+.post-card {
+	margin: 2% 4%;
+	border: 5px solid rgb(153, 153, 153);
+	display: flexbox;
+	height: auto;
+	width: auto;
+}
+
+.card-label {
+	background-color: rgb(153, 153, 153);
+	color: rgb(255, 255, 255);
+	font-weight: 600;
+	font-size: 20px;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.post-form {
+	margin: 1em;
+	border: 5px solid rgb(209, 209, 209);
+}
+
+.post-form ul > li {
+	margin: 1em;
+	font-size: 20px;
+	font-weight: 500;
+	list-style-type: none;
+}
+.post-form button {
+	margin: 1em 1em 1em 4em;
+	font-size: 20px;
+	font-weight: 500;
+	list-style-type: none;
+}
+
+.card-label > span {
+	margin: 0.5em;
+}
+
+.card-title > a {
+	font-size: 20px;
+	font-weight: 500;
+	text-decoration: none;
+	color: white;
+}
+
+.card-info {
+	color: rgb(206, 206, 206);
+	font-weight: 400;
+	font-size: 15px;
+}
+
+.card-body {
+	margin: 0.5em;
+	padding: 0.5em;
+	font-weight: 500;
+}

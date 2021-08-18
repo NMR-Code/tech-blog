@@ -1,0 +1,68 @@
+<div class="center-title">
+	<p>
+		Edit your post
+	</p>
+</div>
+<div class="post-form">
+	<form>
+		<ul>
+			<li>
+				<label for="post_title">post title:</label>
+				<input type="text" id="edit_title" name="post_title" />
+			</li>
+			<li>
+				<label for="post_body">message:</label>
+				<input type="text" id="edit_body" name="post_body" />
+			</li>
+		</ul>
+		<button type="submit" id="edit-button">Submit</button>
+	</form>
+</div>
+
+<div class="center-title">
+	<p>
+		Old Post
+	</p>
+</div>
+
+<div class="post-card">
+	<div class="card-label">
+		<span class="card-title"><a
+				href="dashboard/edit-post/{{this.id}}"
+				id="postPath"
+			>{{this.post_title}}</a></span>
+		<span class="card-info"><div>post ref#
+				<span id="postRef">{{this.id}}</span></div>{{this.user.username}}
+			{{this.post_date}}</span>
+	</div>
+	<div class="card-body">
+		<p>
+			{{this.post_body}}
+		</p>
+
+		<span class="deletePost"><button>delete</button></span>
+	</div>
+</div>
+<div class="center-title">
+	<p>
+		Comments
+	</p>
+</div>
+{{#if comments}}
+	{{#each comments}}
+		<div class="post-card">
+			<div class="card-label">
+				<span class="card-title">{{this.user.username}}</span>
+				<span class="card-info">{{this.comment_date}}</span>
+			</div>
+			<div class="card-body">
+				<p>
+					{{this.comment_body}}
+				</p>
+			</div>
+		</div>
+	{{/each}}
+{{/if}}
+
+<script src="/js/edit-post.js"></script>
+<script src="/js/delete-post.js"></script>

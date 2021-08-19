@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -10,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const sess = {
-	secret: 'dogs are great pets',
+	secret: 'secret',
 	cookie: { maxAge: 1200000 },
 	resave: false,
 	saveUninitialized: false,

@@ -1,6 +1,6 @@
-const User = require('./user.js');
-const Post = require('./posts.js');
-const Comment = require('./comments.js');
+const User = require('./user');
+const Post = require('./posts');
+const Comment = require('./comments');
 
 Post.belongsTo(User, {
 	foreingKey: 'user_id',

@@ -1,4 +1,4 @@
-## MVC Tech Blog
+## Tech Blog
 
 This project uses the Model-View-Controller (MVC) paradigm to create a blog-style website where developers can create an account, edit their information, make posts, edit posts, and comment on other user's posts.
 
@@ -15,6 +15,6 @@ This project uses the Model-View-Controller (MVC) paradigm to create a blog-styl
 
 ## Usage
 
-Heroku Deployment [](https://nmr-tech-blog.herokuapp.com/)
+Heroku Deployment [](https://nmr-tech-blog.herokuapp.com/login)
 
 You can view posts and visit links as a guest, create an account, and as an authenticated user you can add your own posts, and comment on other posts as well. You can edit titles and content or delete your own posts as well. You can also update your username, email, and password.
